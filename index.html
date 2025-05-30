@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comanda - Meat Burger</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+    label { display: block; margin-top: 10px; }
+    textarea, input, select { width: 100%; padding: 5px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px; width: 100%; background-color: #333; color: white; border: none; }
+    pre { background: #f4f4f4; padding: 15px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>Comanda - Meat Burger</h2>
+
+  <label>Pedido Nº:</label>
+  <input type="text" id="pedido">
+
+  <label>Cliente:</label>
+  <input type="text" id="cliente">
+
+  <label>Endereço:</label>
+  <input type="text" id="endereco">
+
+  <label>Horário:</label>
+  <input type="text" id="horario">
+
+  <label>Combo:</label>
+  <input type="text" id="combo">
+
+  <label>Observações:</label>
+  <input type="text" id="obs1">
+
+  <label>Simples:</label>
+  <input type="text" id="simples">
+
+  <label>Observações:</label>
+  <input type="text" id="obs2">
+
+  <label>Bebida:</label>
+  <input type="text" id="bebida">
+
+  <label>Porção:</label>
+  <input type="text" id="porcao">
+
+  <label>Valor do Delivery:</label>
+  <input type="text" id="delivery">
+
+  <label>Forma de Pagamento:</label>
+  <select id="pagamento">
+    <option value="pix">Pix</option>
+    <option value="dinheiro">Dinheiro</option>
+    <option value="cartão">Cartão</option>
+    <option value="efectivo">Efectivo</option>
+    <option value="transferencia">Transferencia</option>
+    <option value="QR">QR</option>
+    <option value="Tarjeta">Tarjeta</option>
+  </select>
+
+  <label>Troco:</label>
+  <input type="text" id="troco">
+
+  <label>Total:</label>
+  <input type="text" id="total">
+
+  <button onclick="gerarComanda()">Gerar Comanda</button>
+
+  <h3>Resultado:</h3>
+  <pre id="resultado"></pre>
+
+  <script>
+    function gerarComanda() {
+      const pedido = document.getElementById('pedido').value;
+      const cliente = document.getElementById('cliente').value;
+      const endereco = document.getElementById('endereco').value;
+      const horario = document.getElementById('horario').value;
+      const combo = document.getElementById('combo').value;
+      const obs1 = document.getElementById('obs1').value;
+      const simples = document.getElementById('simples').value;
+      const obs2 = document.getElementById('obs2').value;
+      const bebida = document.getElementById('bebida').value;
+      const porcao = document.getElementById('porcao').value;
+      const delivery = document.getElementById('delivery').value;
+      const pagamento = document.getElementById('pagamento').value;
+      const troco = document.getElementById('troco').value;
+      const total = document.getElementById('total').value;
+
+      const hoje = new Date();
+      const data = hoje.toLocaleDateString('pt-BR');
+
+      const resultado = 
+`MEAT BURGER
+Area 1, Cde
+
+Pedido:${pedido}
+Data: ${data}
+*******************
+Cliente: ${cliente}
+Endereço: ${endereco}
+Horário: ${horario}
+*******************
+ITEM
+Combo: ${combo}
+Obs: ${obs1}
+Simples:${simples}
+Obs: ${obs2}
+Bebida: ${bebida}
+Porção: ${porcao}
+Delivery: ${delivery} 
+
+*******************
+Pagamento: ${pagamento}
+Troco: ${troco}
+*******************
+TOTAL = ${total} 
+
+Agradecemos a preferência!!!`;
+
+      document.getElementById('resultado').innerText = resultado;
+    }
+  </script>
+</body>
+</html>

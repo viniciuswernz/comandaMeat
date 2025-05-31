@@ -5,137 +5,131 @@
   <title>Comanda - Meat Burger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="visual.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    textarea, input, select {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 15px;
+      white-space: pre-wrap;
+    }
+
+    #combos-container, #simples-container {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .combo-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .combo-group label {
+      flex-grow: 1;
+    }
+
+    .combo-group input[type="number"] {
+      width: 60px;
+      padding: 4px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <h2>Comanda - Meat Burger</h2>
 
-  <label for="pedido">Pedido Nº:</label>
-  <input type="text" id="pedido" name="pedido">
+  <label>Pedido Nº:</label>
+  <input type="text" id="pedido">
 
-  <label for="cliente">Cliente:</label>
-  <input type="text" id="cliente" name="cliente">
+  <label>Cliente:</label>
+  <input type="text" id="cliente">
 
-  <label for="endereco">Endereço:</label>
-  <input type="text" id="endereco" name="endereco">
+  <label>Endereço:</label>
+  <input type="text" id="endereco">
 
-  <label for="horario">Horário:</label>
-  <input type="text" id="horario" name="horario">
+  <label>Horário:</label>
+  <input type="text" id="horario">
 
   <label><strong>Combos:</strong></label>
   <div id="combos-container">
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo1" value="Combo Smash Cheese">
-      <label for="combo1">Combo Smash Cheese</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo2" value="Combo Smash Bacon">
-      <label for="combo2">Combo Smash Bacon</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo3" value="Combo Cheddar Burger">
-      <label for="combo3">Combo Cheddar Burger</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo4" value="Combo Chicken Burger">
-      <label for="combo4">Combo Chicken Burger</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo5" value="Combo Classic">
-      <label for="combo5">Combo Classic</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo6" value="Combo Cheese Bacon">
-      <label for="combo6">Combo Cheese Bacon</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo7" value="Combo Gorgonzola">
-      <label for="combo7">Combo Gorgonzola</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo8" value="Combo Catubacon">
-      <label for="combo8">Combo Catubacon</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
-    <div class="combo-group">
-      <input type="checkbox" class="combo" id="combo9" value="Combo Double Bacon">
-      <label for="combo9">Combo Double Bacon</label>
-      <input type="number" class="quantidade" min="1" placeholder="Qtd">
-    </div>
+    <div class="combo-group"><label>Smash Cheese</label><input type="number" class="combo" data-nome="smash cheese" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Smash Bacon</label><input type="number" class="combo" data-nome="smash bacon" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Cheddar Burger</label><input type="number" class="combo" data-nome="cheddar burger" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Chicken Burger</label><input type="number" class="combo" data-nome="chicken burger" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Classic</label><input type="number" class="combo" data-nome="classic" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Cheese Bacon</label><input type="number" class="combo" data-nome="cheese bacon" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Gorgonzola</label><input type="number" class="combo" data-nome="gorgonzola" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Catubacon</label><input type="number" class="combo" data-nome="catubacon" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Double Bacon</label><input type="number" class="combo" data-nome="double bacon" min="0" placeholder="Qtd"></div>
   </div>
 
-  <label for="obs1">Observações:</label>
-  <input type="text" id="obs1" name="obs1">
+  <label>Observações:</label>
+  <input type="text" id="obs1">
 
   <label><strong>Simples:</strong></label>
   <div id="simples-container">
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples1" value="Smash Cheese Simples">
-      <label for="simples1">Smash Cheese Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples2" value="Smash Bacon Simples">
-      <label for="simples2">Smash Bacon Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples3" value="Cheddar Burger Simples">
-      <label for="simples3">Cheddar Burger Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples4" value="Chicken Burger Simples">
-      <label for="simples4">Chicken Burger Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples5" value="Classic Simples">
-      <label for="simples5">Classic Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples6" value="Cheese Bacon Simples">
-      <label for="simples6">Cheese Bacon Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples7" value="Gorgonzola Simples">
-      <label for="simples7">Gorgonzola Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples8" value="Catubacon Simples">
-      <label for="simples8">Catubacon Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
-    <div class="simples-group">
-      <input type="checkbox" class="simples" id="simples9" value="Double Bacon Simples">
-      <label for="simples9">Double Bacon Simples</label>
-      <input type="number" class="quantidade-simples" min="1" placeholder="Qtd">
-    </div>
+    <div class="combo-group"><label>Smash Cheese Simples</label><input type="number" class="simples" data-nome="smash cheese simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Smash Bacon Simples</label><input type="number" class="simples" data-nome="smash bacon simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Cheddar Burger Simples</label><input type="number" class="simples" data-nome="cheddar burger simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Chicken Burger Simples</label><input type="number" class="simples" data-nome="chicken burger simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Classic Simples</label><input type="number" class="simples" data-nome="classic simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Cheese Bacon Simples</label><input type="number" class="simples" data-nome="cheese bacon simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Gorgonzola Simples</label><input type="number" class="simples" data-nome="gorgonzola simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Catubacon Simples</label><input type="number" class="simples" data-nome="catubacon simples" min="0" placeholder="Qtd"></div>
+    <div class="combo-group"><label>Double Bacon Simples</label><input type="number" class="simples" data-nome="double bacon simples" min="0" placeholder="Qtd"></div>
   </div>
 
-  <label for="obs2">Observações:</label>
-  <input type="text" id="obs2" name="obs2">
+  <label>Observações:</label>
+  <input type="text" id="obs2">
 
-  <label for="bebida">Bebida:</label>
-  <input type="text" id="bebida" name="bebida">
+  <label>Bebida:</label>
+  <input type="text" id="bebida">
 
-  <label for="porcao">Porção:</label>
-  <input type="text" id="porcao" name="porcao">
+  <label>Porção:</label>
+  <input type="text" id="porcao">
 
-  <label for="delivery">Valor do Delivery:</label>
-  <input type="text" id="delivery" name="delivery">
+  <label>Valor do Delivery:</label>
+  <input type="text" id="delivery">
 
-  <label for="pagamento">Forma de Pagamento:</label>
-  <select id="pagamento" name="pagamento">
+  <label>Forma de Pagamento:</label>
+  <select id="pagamento">
     <option value="pix">Pix</option>
     <option value="dinheiro">Dinheiro</option>
     <option value="cartão">Cartão</option>
@@ -145,11 +139,11 @@
     <option value="Tarjeta">Tarjeta</option>
   </select>
 
-  <label for="troco">Troco:</label>
-  <input type="text" id="troco" name="troco">
+  <label>Troco:</label>
+  <input type="text" id="troco">
 
-  <label for="total">Total:</label>
-  <input type="text" id="total" name="total">
+  <label>Total:</label>
+  <input type="text" id="total">
 
   <button onclick="gerarComanda()">Gerar Comanda</button>
   <button type="button" onclick="selecionarTexto()">Selecionar Comanda</button>
@@ -158,102 +152,65 @@
   <h3>Resultado:</h3>
   <pre id="resultado"></pre>
 
-<script>
-  function gerarComanda() {
-    const pedido = document.getElementById('pedido').value;
-    const cliente = document.getElementById('cliente').value;
-    const endereco = document.getElementById('endereco').value;
-    const horario = document.getElementById('horario').value;
-    const obs1 = document.getElementById('obs1').value;
-    const obs2 = document.getElementById('obs2').value;
-    const bebida = document.getElementById('bebida').value;
-    const porcao = document.getElementById('porcao').value;
-    const delivery = document.getElementById('delivery').value;
-    const pagamento = document.getElementById('pagamento').value;
-    const troco = document.getElementById('troco').value;
-    const total = document.getElementById('total').value;
+  <script>
+    function gerarComanda() {
+      const pedido = document.getElementById('pedido').value;
+      const cliente = document.getElementById('cliente').value;
+      const endereco = document.getElementById('endereco').value;
+      const horario = document.getElementById('horario').value;
+      const obs1 = document.getElementById('obs1').value;
+      const obs2 = document.getElementById('obs2').value;
+      const bebida = document.getElementById('bebida').value;
+      const porcao = document.getElementById('porcao').value;
+      const delivery = document.getElementById('delivery').value;
+      const pagamento = document.getElementById('pagamento').value;
+      const troco = document.getElementById('troco').value;
+      const total = document.getElementById('total').value;
 
-    // Captura combos selecionados
-    let combo = '';
-    const combos = document.querySelectorAll('.combo');
-    const quantidades = document.querySelectorAll('.quantidade');
-    combos.forEach((checkbox, index) => {
-      if (checkbox.checked) {
-        const qtd = quantidades[index].value || '1';
-        combo += `- ${checkbox.value.toLowerCase()} (${qtd}x)\n`;
-      }
-    });
+      let combo = '';
+      document.querySelectorAll('.combo').forEach(input => {
+        const qtd = parseInt(input.value);
+        if (qtd && qtd > 0) {
+          combo += `- combo ${input.dataset.nome} (${qtd}x)\n`;
+        }
+      });
 
-    // Captura simples selecionados
-    let simples = '';
-    const simplesCheckboxes = document.querySelectorAll('.simples');
-    const simplesQuant = document.querySelectorAll('.quantidade-simples');
-    simplesCheckboxes.forEach((checkbox, index) => {
-      if (checkbox.checked) {
-        const qtd = simplesQuant[index].value || '1';
-        simples += `- ${checkbox.value.toLowerCase()} (${qtd}x)\n`;
-      }
-    });
+      let simples = '';
+      document.querySelectorAll('.simples').forEach(input => {
+        const qtd = parseInt(input.value);
+        if (qtd && qtd > 0) {
+          simples += `- ${input.dataset.nome} (${qtd}x)\n`;
+        }
+      });
 
-    const hoje = new Date();
-    const data = hoje.toLocaleDateString('pt-BR');
+      const hoje = new Date();
+      const data = hoje.toLocaleDateString('pt-BR');
 
-    const resultado = 
-`MEAT BURGER
-Area 1, Cde
+      const resultado = `MEAT BURGER\nArea 1, Cde\n\nPedido: ${pedido}\nData: ${data}\n*******\nCliente: ${cliente}\nEndereço: ${endereco}\nHorário: ${horario}\n*******\nITEM\nCombo:\n${combo.trim()}\nObs: ${obs1}\nSimples:\n${simples.trim()}\nObs: ${obs2}\nBebida: ${bebida}\nPorção: ${porcao}\nDelivery: ${delivery} \n\n*******\nPagamento: ${pagamento}\nTroco: ${troco}\n*******\nTOTAL = ${total} reais \n\nAgradecemos a preferência!!!`;
 
-Pedido: ${pedido}
-Data: ${data}
-*******
-Cliente: ${cliente}
-Endereço: ${endereco}
-Horário: ${horario}
-*******
-ITEM
-Combo: 
-${combo.trim() || '-'}
-Obs: ${obs1}
-Simples: 
-${simples.trim() || '-'}
-Obs: ${obs2}
-Bebida: ${bebida}
-Porção: ${porcao}
-Delivery: ${delivery}
+      document.getElementById('resultado').innerText = resultado;
+    }
 
-*******
-Pagamento: ${pagamento}
-Troco: ${troco}
-*******
-TOTAL = ${total} 
+    function selecionarTexto() {
+      const resultado = document.getElementById('resultado');
+      const range = document.createRange();
+      range.selectNodeContents(resultado);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
 
-Agradecemos a preferência!!!`;
-
-    document.getElementById('resultado').innerText = resultado;
-  }
-
-  function selecionarTexto() {
-    const resultado = document.getElementById('resultado');
-    const range = document.createRange();
-    range.selectNodeContents(resultado);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-  }
-
-  function limparCampos() {
-    const campos = document.querySelectorAll("input, select");
-    campos.forEach(campo => {
-      if (campo.type === "checkbox") {
-        campo.checked = false;
-      } else if (campo.tagName === "SELECT") {
-        campo.selectedIndex = 0;
-      } else {
-        campo.value = "";
-      }
-    });
-    document.getElementById('resultado').innerText = "";
-  }
-</script>
-
+    function limparCampos() {
+      const campos = document.querySelectorAll("input, select");
+      campos.forEach(campo => {
+        if (campo.type === "number" || campo.type === "text") {
+          campo.value = "";
+        } else if (campo.tagName === "SELECT") {
+          campo.selectedIndex = 0;
+        }
+      });
+      document.getElementById('resultado').innerText = "";
+    }
+  </script>
 </body>
 </html>

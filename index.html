@@ -171,7 +171,7 @@
       document.querySelectorAll('.combo').forEach(input => {
         const qtd = parseInt(input.value);
         if (qtd && qtd > 0) {
-          combo += `- combo ${input.dataset.nome} (${qtd}x)\n`;
+          combo += `- (${qtd}x) combo ${input.dataset.nome} \n`;
         }
       });
 
@@ -179,14 +179,14 @@
       document.querySelectorAll('.simples').forEach(input => {
         const qtd = parseInt(input.value);
         if (qtd && qtd > 0) {
-          simples += `- ${input.dataset.nome} (${qtd}x)\n`;
+          simples += `- (${qtd}x) ${input.dataset.nome} \n`;
         }
       });
 
       const hoje = new Date();
       const data = hoje.toLocaleDateString('pt-BR');
 
-      const resultado = `MEAT BURGER\nArea 1, Cde\n\nPedido: ${pedido}\nData: ${data}\n*******\nCliente: ${cliente}\nEndereço: ${endereco}\nHorário: ${horario}\n*******\nITEM\nCombo:\n${combo.trim()}\nObs: ${obs1}\nSimples:\n${simples.trim()}\nObs: ${obs2}\nBebida: ${bebida}\nPorção: ${porcao}\nDelivery: ${delivery} \n\n*******\nPagamento: ${pagamento}\nTroco: ${troco}\n*******\nTOTAL = ${total} reais \n\nAgradecemos a preferência!!!`;
+      const resultado = `MEAT BURGER\nArea 1, Cde\n\nPedido: ${pedido}\nData: ${data}\n*******\nCliente: ${cliente}\nEndereço: ${endereco}\nHorário: ${horario}\n*******\nITEM\nCombo:\n${combo.trim()}\nObs: ${obs1}\nSimples:\n${simples.trim()}\nObs: ${obs2}\nBebida: ${bebida}\nPorção: ${porcao}\nDelivery: ${delivery} \n\n*******\nPagamento: ${pagamento}\nTroco: ${troco}\n*******\nTOTAL = ${total} \n\nAgradecemos a preferência!!!`;
 
       document.getElementById('resultado').innerText = resultado;
     }
